@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team | Zhaoxiang Liu</title>
+
+    <style>
+        :root {
+            --primary:#1f3a5f;
+            --secondary:#2c6e91;
+            --accent:#1abc9c;
+            --bg:#f7f9fc;
+            --text:#333;
+            --muted:#667085;
+            --card:#ffffff;
+            --line:#e6eaf0;
+            --soft:#eef6f8;
+        }
+
+        * { box-sizing:border-box; }
+
+        html { scroll-behavior:smooth; }
+
+        body {
+            font-family:"Segoe UI",Roboto,Arial,sans-serif;
+            max-width:1080px;
+            margin:auto;
+            padding:0 22px 50px;
+            background:var(--bg);
+            color:var(--text);
+            line-height:1.65;
+        }
+
+        a {
+            color:var(--secondary);
+            text-decoration:none;
+            transition:0.25s;
+        }
+
+        a:hover { color:var(--accent); }
+
+        .nav {
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            gap:20px;
+            padding:22px 0;
+            border-bottom:1px solid var(--line);
+        }
+
+        .brand {
+            font-size:1.05rem;
+            font-weight:700;
+            color:var(--primary);
+        }
+
+        .nav-links {
+            display:flex;
+            gap:22px;
+            font-size:0.96rem;
+        }
+
+        .nav-links a {
+            color:#4b5563;
+            font-weight:600;
+        }
+
+        .nav-links a.active,
+        .nav-links a:hover {
+            color:var(--accent);
+        }
+
+        .hero {
+            display:grid;
+            grid-template-columns:1fr;
+            padding:56px 0 34px;
+        }
+
+        .hero > div {
+            max-width:900px;
+        }
+
+        .eyebrow {
+            margin:0 0 8px;
+            color:var(--accent);
+            font-weight:700;
+            letter-spacing:0.08em;
+            text-transform:uppercase;
+            font-size:0.8rem;
+        }
+
+        h1,h2,h3 { color:var(--primary); }
+
+        h1 {
+            margin:0 0 16px;
+            font-size:clamp(2.1rem,5vw,3.5rem);
+            line-height:1.08;
+        }
+
+        h2 {
+            margin:55px 0 22px;
+            padding-bottom:9px;
+            border-bottom:2px solid #ddd;
+        }
+
+        h3 { margin:0 0 8px; }
+
+        .lead {
+            font-size:1.08rem;
+            color:#4b5563;
+            margin:0;
+        }
+
+        .hero-photo {
+            width:100%;
+            min-height:280px;
+            max-height:380px;
+            object-fit:cover;
+            border-radius:18px;
+            border:1px solid var(--line);
+            box-shadow:0 12px 32px rgba(31,58,95,0.10);
+            background:#e9eef4;
+        }
+
+        .pill-row {
+            display:flex;
+            flex-wrap:wrap;
+            gap:9px;
+            margin-top:20px;
+        }
+
+        .pill {
+            padding:7px 11px;
+            border-radius:999px;
+            background:var(--soft);
+            color:var(--secondary);
+            font-size:0.88rem;
+            font-weight:600;
+        }
+
+        .section-intro {
+            max-width:850px;
+            color:#5d6673;
+            margin-bottom:22px;
+        }
+
+        .research-grid,
+        .member-grid {
+            display:grid;
+            gap:20px;
+        }
+
+        .research-grid {
+            grid-template-columns:repeat(2,minmax(0,1fr));
+        }
+
+        .member-grid {
+            grid-template-columns:repeat(3,minmax(0,1fr));
+        }
+
+        .card {
+            background:var(--card);
+            border:1px solid var(--line);
+            border-radius:16px;
+            padding:22px;
+            box-shadow:0 8px 24px rgba(31,58,95,0.055);
+        }
+
+        .research-card .number {
+            display:inline-flex;
+            align-items:center;
+            justify-content:center;
+            width:34px;
+            height:34px;
+            border-radius:10px;
+            background:var(--primary);
+            color:#fff;
+            font-weight:700;
+            margin-bottom:15px;
+        }
+
+        .member-card {
+            padding:0;
+            overflow:hidden;
+        }
+
+        .member-photo {
+            width:100%;
+            aspect-ratio:4/4.6;
+            object-fit:cover;
+            display:block;
+            background:#edf1f5;
+        }
+
+        .member-body { padding:20px; }
+
+        .member-role {
+            color:var(--secondary);
+            font-weight:700;
+            margin:2px 0 11px;
+        }
+
+        .member-meta {
+            padding:0;
+            margin:12px 0 0;
+            list-style:none;
+            color:#555;
+            font-size:0.94rem;
+        }
+
+        .member-meta li { margin:7px 0; }
+
+        .member-meta b { color:var(--primary); }
+
+        /* Representative Outputs:
+           imitate the presentation style used on the personal homepage */
+        .output-item {
+            margin-bottom:28px;
+        }
+
+        .output-tag {
+            display:inline-block;
+            color:#fff;
+            padding:4px 9px;
+            border-radius:5px;
+            margin-bottom:10px;
+            font-size:0.82rem;
+            font-weight:700;
+        }
+
+        .tag-research { background:#1abc9c; }
+        .tag-development { background:#2c6e91; }
+
+        .output-title {
+            font-weight:bold;
+            color:var(--secondary);
+            font-size:1.1em;
+            margin-bottom:5px;
+        }
+
+        .output-item p {
+            margin-top:6px;
+        }
+
+        .callout {
+            margin-top:26px;
+            padding:26px;
+            border-radius:16px;
+            background:linear-gradient(135deg, #1f3a5f, #2c6e91);
+            color:#fff;
+        }
+
+        .callout h3 { color:#fff; }
+
+        .callout a { color:#b8fff0; }
+
+        .footer {
+            margin-top:60px;
+            text-align:center;
+            font-size:0.85em;
+            color:#777;
+            border-top:1px solid var(--line);
+            padding-top:22px;
+        }
+
+        @media (max-width:850px) {
+            .hero { grid-template-columns:1fr; }
+
+            .member-grid {
+                grid-template-columns:repeat(2,minmax(0,1fr));
+            }
+        }
+
+        @media (max-width:620px) {
+            body { padding:0 16px 36px; }
+
+            .research-grid,
+            .member-grid {
+                grid-template-columns:1fr;
+            }
+
+            .hero { padding-top:38px; }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- The personal homepage remains unchanged. -->
+    <nav class="nav">
+        <a class="brand" href="index.html">Zhaoxiang Liu</a>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a class="active" href="team.html">Team</a>
+        </div>
+    </nav>
+
+    <main>
+
+        <!-- Team overview -->
+        <section class="hero">
+            <div>
+                <p class="eyebrow">AI Forge | 爱智造</p>
+                <h1>Interdisciplinary AI Research & Engineering Team</h1>
+
+                <p class="lead">
+                    We are an interdisciplinary research and development team working at the intersection of artificial intelligence, scientific research, and software engineering. Our work spans AI-driven drug discovery, web development, AI agent development, research software, and data-driven scientific applications. We aim to transform research ideas and technical concepts into practical tools and solutions.
+                </p>
+
+                <div class="pill-row">
+                    <span class="pill">AI for Science</span>
+                    <span class="pill">Drug Discovery</span>
+                    <span class="pill">Web Development</span>
+                    <span class="pill">AI Agents</span>
+                    <span class="pill">Software Development</span>
+                </div>
+            </div>
+            <!--
+            Team photo reserved for future use.
+
+            <img
+                class="hero-photo"
+                src="fig/team.jpg"
+                alt="Research team group photo"
+            >
+            -->
+        </section>
+
+
+       <!-- Research directions -->
+<section>
+    <h2>Research & Development Directions</h2>
+
+    <p class="section-intro">
+        Our team combines scientific research with practical engineering and
+        software development. We work across AI-driven scientific discovery,
+        intelligent systems, web technologies and research software, with the
+        goal of transforming research ideas into practical tools, platforms
+        and applications.
+    </p>
+
+    <div class="research-grid">
+
+        <article class="card research-card">
+            <div class="number">01</div>
+            <h3>AI-Driven Drug Discovery</h3>
+            <p>
+                Deep learning, molecular modeling and virtual screening for
+                RNA-targeted small molecules, covalent inhibitors and other
+                AI-assisted drug discovery applications.
+            </p>
+        </article>
+
+        <article class="card research-card">
+            <div class="number">02</div>
+            <h3>Web & Platform Development</h3>
+            <p>
+                Design and development of academic websites, research platforms
+                and interactive web applications, with emphasis on usability,
+                maintainability and effective information presentation.
+            </p>
+        </article>
+
+        <article class="card research-card">
+            <div class="number">03</div>
+            <h3>AI Agents & Intelligent Workflows</h3>
+            <p>
+                Development of AI agents and automated workflows for research
+                assistance, information processing, knowledge retrieval,
+                task automation and domain-specific applications.
+            </p>
+        </article>
+
+        <article class="card research-card">
+            <div class="number">04</div>
+            <h3>Research Software & Applications</h3>
+            <p>
+                Development of research software, scientific utilities,
+                data-processing tools and application-oriented systems that
+                improve efficiency, reproducibility and accessibility.
+            </p>
+        </article>
+
+        <article class="card research-card">
+            <div class="number">05</div>
+            <h3>Multimodal AI & Data Intelligence</h3>
+            <p>
+                Multimodal learning, biological sequence modeling and feature
+                fusion for representation learning, interaction prediction
+                and data-driven scientific analysis.
+            </p>
+        </article>
+
+        <article class="card research-card">
+            <div class="number">06</div>
+            <h3>Computational & Experimental Integration</h3>
+            <p>
+                Integration of computational prediction with experimental
+                validation, including molecular modeling, single-molecule
+                studies and biological mechanism investigation.
+            </p>
+        </article>
+
+    </div>
+</section>
+
+
+        <!-- Members -->
+        <section>
+            <h2>Team Members</h2>
+
+            <p class="section-intro">
+                Each member profile presents academic background, team
+                responsibility and current research or development focus.
+            </p>
+
+            <div class="member-grid">
+
+                <article class="card member-card">
+                    <img
+                        class="member-photo"
+                        src="fig/zhaoxiang-liu.jpg"
+                        alt="Zhaoxiang Liu"
+                        onerror="this.src='https://via.placeholder.com/600x700?text=Zhaoxiang+Liu'"
+                    >
+
+                    <div class="member-body">
+                        <h3>Zhaoxiang Liu</h3>
+                        <div class="member-role">Ph.D. Candidate</div>
+
+                        <p>
+                            Researcher working at the intersection of artificial
+                            intelligence, drug discovery, scientific computing
+                            and software development.
+                        </p>
+
+                        <ul class="member-meta">
+                            <li>
+                                <b>Education:</b>
+                                Ph.D. Candidate in Electronic Information,
+                                Huazhong Agricultural University
+                            </li>
+
+                            <li>
+                                <b>Team Role:</b>
+                                AI modeling, research design, software development
+                                and technical coordination
+                            </li>
+
+                            <li>
+                                <b>Research Focus:</b>
+                                AI-driven drug discovery, biological modeling,
+                                intelligent agents and research software
+                            </li>
+                        </ul>
+                    </div>
+                </article>
+
+
+                <article class="card member-card">
+                    <img
+                        class="member-photo"
+                        src="fig/member-2.jpg"
+                        alt="Team member"
+                        onerror="this.src='https://via.placeholder.com/600x700?text=Member+Photo'"
+                    >
+
+                    <div class="member-body">
+                        <h3>Member Name</h3>
+
+                        <div class="member-role">
+                            Ph.D. Student / Master Student / Undergraduate
+                        </div>
+
+                        <p>
+                            Add a short introduction describing academic background,
+                            technical interests and current work.
+                        </p>
+
+                        <ul class="member-meta">
+                            <li><b>Education:</b> University / Major / Degree</li>
+                            <li><b>Team Role:</b> Research / Development / Experiments / Data Analysis</li>
+                            <li><b>Focus:</b> Add research or development topics here</li>
+                        </ul>
+                    </div>
+                </article>
+
+
+                <article class="card member-card">
+                    <img
+                        class="member-photo"
+                        src="fig/member-3.jpg"
+                        alt="Team member"
+                        onerror="this.src='https://via.placeholder.com/600x700?text=Member+Photo'"
+                    >
+
+                    <div class="member-body">
+                        <h3>Member Name</h3>
+
+                        <div class="member-role">
+                            Ph.D. Student / Master Student / Undergraduate
+                        </div>
+
+                        <p>
+                            Add a short introduction describing academic background,
+                            technical interests and current work.
+                        </p>
+
+                        <ul class="member-meta">
+                            <li><b>Education:</b> University / Major / Degree</li>
+                            <li><b>Team Role:</b> Research / Development / Experiments / Data Analysis</li>
+                            <li><b>Focus:</b> Add research or development topics here</li>
+                        </ul>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+
+        <!-- Representative outputs -->
+        <section>
+            <h2>Representative Outputs</h2>
+
+            <p class="section-intro">
+                Selected research publications and development projects from the team.
+            </p>
+
+            <div class="output-item">
+                <div class="output-tag tag-research">Research Publication</div>
+
+                <div class="output-title">
+                    DistRMI: A Deep Distance-Aware Neural Network for Explainable
+                    RNA Loop Motif–Small Molecule Interaction Prediction (BIB 2025)
+                </div>
+
+                <p>
+                    A deep learning framework integrating distance-aware interaction
+                    modeling to identify key binding regions for RNA–ligand interactions.
+                </p>
+            </div>
+
+            <div class="output-item">
+                <div class="output-tag tag-development">Web &amp; Agent Development</div>
+
+                <div class="output-title">
+                    <a
+                        href="http://rsid.hzau.edu.cn/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        RSID: RNA–Small Molecule Interaction Database
+                    </a>
+                </div>
+
+                <p>
+                    A web-based database for RNA–small molecule interactions,
+                    providing search and filtering functions to support efficient
+                    retrieval and screening of relevant interaction records.
+                </p>
+
+            </div>
+        </section>
+
+
+        <!-- Collaboration -->
+        <section>
+            <h2>Collaboration & Opportunities</h2>
+
+            <div class="callout">
+                <h3>Interested in collaborating?</h3>
+
+                <p>
+                    We welcome collaborations in AI for science, drug discovery,
+                    website development, intelligent agents, software engineering
+                    and interdisciplinary research applications.
+                </p>
+
+                <p>
+                    Contact:
+                    <a href="/cdn-cgi/l/email-protection#216d48545b49404e5948404f46615644434c40484d0f495b40540f4445540f424f">
+                        <span class="__cf_email__" data-cfemail="0e42677b74666f6176676f60694e796b6c636f67622066746f7b206b6a7b206d60">[email&#160;protected]</span>
+                    </a>
+                </p>
+            </div>
+        </section>
+
+    </main>
+
+    <div class="footer">
+        © 2026 Zhaoxiang Liu | Research & Development Team
+    </div><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script></body>
+</html>
