@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600">
+  <rect width="800" height="600" fill="#f0f4f8"/>
+  <g transform="translate(0 75)">
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="3">
+    <rect x="354" y="123" width="92" height="76" rx="10" fill="#fff" stroke="#2c6e91"/>
+    <circle cx="378" cy="146" r="7" stroke="#2c6e91"/>
+    <path d="m361 189 22-24 17 17 17-20 22 27" stroke="#1abc9c"/>
+  </g>
+  <text x="400" y="259" text-anchor="middle" fill="#1f3a5f" font-family="Segoe UI,Roboto,Arial,sans-serif" font-size="28" font-weight="600">Image to be added</text>
+  <text x="400" y="294" text-anchor="middle" fill="#667085" font-family="Segoe UI,Roboto,Arial,sans-serif" font-size="21">Paper figure · Project image</text>
+  </g>
+</svg>
