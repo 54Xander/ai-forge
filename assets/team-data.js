@@ -1,6 +1,6 @@
 /*
  * Team data for AI Forge.
- * Current composition: 3 Ph.D. members, 5 master's members, and 3 undergraduate members.
+ * Current composition: 2 Ph.D. members, 5 master's members, and 4 undergraduate members.
  * Photos are optional local paths, relative to index.html. Missing photos fall
  * back to initials without relying on an external placeholder service.
  */
@@ -46,24 +46,6 @@ window.TEAM_DATA = {
     },
 
     {
-      id: "yixiao-dong",
-      name: "Yixiao Dong (董宜晓)",
-      initials: "YD",
-      level: "phd",
-      teamRole: "Project Development",
-      placeholder: false,
-      photo: "fig/Dongyixiao.jpg",
-      focus: "AI-driven screening and development of covalent compounds",
-      education: "Huazhong Agricultural University",
-      description: "Researcher working at the intersection of artificial intelligence and bioinformatics, with a focus on the AI-driven screening and development of covalent compounds.",
-      tags: [
-        "AI for Science",
-        "Covalent Compounds",
-        "AI-Driven Molecular Screening"
-      ]
-    },
-
-    {
       id: "qingyan-qian",
       name: "Qingyan Qian (田清艳)",
       initials: "QQ",
@@ -87,7 +69,7 @@ window.TEAM_DATA = {
       level: "masters",
       teamRole: "Project Follow-up and Development",
       placeholder: false,
-      photo: "fig/Koulei.jpg",
+      photo: "fig/Kouilei.jpg",
       focus: "AI-driven drug discovery",
       education: "Master of Veterinary Medicine, Huazhong Agricultural University",
       description: "Researcher working at the intersection of artificial intelligence and drug discovery.",
@@ -192,7 +174,7 @@ window.TEAM_DATA = {
       level: "undergrad",
       teamRole: "Project Development",
       placeholder: false,
-      photo: "fig/Qinjing.jpg",
+      photo: "fig/Qinqing.jpg",
       focus: "AI-driven analysis of RNA–RNA interactions",
       education: "Huazhong Agricultural University",
       description: "Researcher working at the intersection of artificial intelligence and bioinformatics, with a focus on AI-driven analysis of RNA–RNA interactions.",
@@ -200,6 +182,24 @@ window.TEAM_DATA = {
         "AI for Science",
         "RNA–RNA Interactions",
         "AI-Driven Interaction Modeling"
+      ]
+    },
+
+    {
+      id: "yixiao-dong",
+      name: "Yixiao Dong (董宜晓)",
+      initials: "YD",
+      level: "undergrad",
+      teamRole: "Project Development",
+      placeholder: false,
+      photo: "fig/Dongyixiao.jpg",
+      focus: "AI-driven screening and development of covalent compounds",
+      education: "Huazhong Agricultural University",
+      description: "Researcher working at the intersection of artificial intelligence and bioinformatics, with a focus on the AI-driven screening and development of covalent compounds.",
+      tags: [
+        "AI for Science",
+        "Covalent Compounds",
+        "AI-Driven Molecular Screening"
       ]
     }
   ],

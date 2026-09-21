@@ -4,8 +4,32 @@ from collections import Counter
 from html.parser import HTMLParser
 from pathlib import Path
 from urllib.parse import unquote, urlsplit
+import json
+import subprocess
 
 ROOT = Path(__file__).resolve().parents[1]
+
+
+def member_photos():
+    """Read data-driven image URLs so missing member photos also fail validation."""
+    script = """
+const fs = require('node:fs');
+const vm = require('node:vm');
+const context = { window: {} };
+vm.runInNewContext(fs.readFileSync(process.argv[1], 'utf8'), context, { timeout: 1000 });
+const photos = context.window.TEAM_DATA.members.filter(member => member.photo).map(member => member.photo);
+process.stdout.write(JSON.stringify(photos));
+"""
+    try:
+        result = subprocess.run(
+            ["node", "-e", script, str(ROOT / "assets/team-data.js")],
+            check=True, capture_output=True, text=True,
+        )
+        return json.loads(result.stdout)
+    except FileNotFoundError:
+        raise SystemExit("Node.js is required to validate member photo paths.")
+    except (subprocess.CalledProcessError, json.JSONDecodeError) as error:
+        raise SystemExit(f"Unable to read member photo paths: {error}")
 
 
 class Page(HTMLParser):
@@ -44,6 +68,9 @@ def main():
     if not (ROOT / ".nojekyll").is_file():
         errors.append("Missing .nojekyll for static publishing")
     pages = {path.resolve(): Page(path) for path in ROOT.glob("*.html")}
+    team_page = pages.get(ROOT / "team.html")
+    if team_page:
+        team_page.references.extend(member_photos())
     for path, page in pages.items():
         prefix = path.name + ": "
         duplicates = [item for item, count in Counter(page.ids).items() if count > 1]

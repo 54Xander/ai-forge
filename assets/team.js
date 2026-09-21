@@ -147,12 +147,13 @@
       const photo = element("img", "member-photo");
       photo.alt = "";
       photo.loading = "lazy";
+      photo.decoding = "async";
       photo.addEventListener("error", () => photo.remove(), { once: true });
       photo.src = member.photo;
       avatar.append(photo);
     }
     const body = element("div", "member-info");
-   body.append(element("h3", "", member.name), element("p", "member-role", member.teamRole));
+    body.append(element("h3", "", member.name), element("p", "member-role", member.teamRole));
     if (member.placeholder) body.append(element("span", "pending-badge", "To be added"));
     if (member.description) body.append(element("p", "member-description", member.description));
     const focusTags = member.tags?.length ? member.tags : [member.focus || "To be added"];
