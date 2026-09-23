@@ -1,6 +1,6 @@
 /*
  * Team data for AI Forge.
- * Current composition: 2 Ph.D. members, 5 master's members, and 4 undergraduate members.
+ * Current composition: 2 Ph.D. members, 4 master's members, and 5 undergraduate members.
  * Photos are optional local paths, relative to index.html. Missing photos fall
  * back to initials without relying on an external placeholder service.
  */
@@ -101,7 +101,7 @@ window.TEAM_DATA = {
       name: "Yuzuo Sun (孙玉卓)",
       initials: "YS",
       level: "masters",
-      teamRole: "Group Member",
+      teamRole: "Project Development",
       placeholder: false,
       photo: "fig/Sunyuzuo.jpg",
       focus: "AI-driven drug discovery & drug repurposing",
@@ -115,22 +115,7 @@ window.TEAM_DATA = {
       ]
     },
 
-    {
-      id: "munisai",
-      name: "Munisai (穆尼赛)",
-      initials: "M",
-      level: "masters",
-      teamRole: "Project Development",
-      placeholder: false,
-      photo: "fig/Munisai.png",
-      focus: "AI-driven screening and development of multifunctional peptides",
-      education: "Huazhong Agricultural University",
-      description: "Researcher working at the intersection of artificial intelligence and bioinformatics, with a focus on the AI-driven screening and development of multifunctional peptides.",
-      tags: [
-        "AI for Science",
-        "Multifunctional Peptides",
-        "AI-Driven Peptide Screening"
-      ]
+
     },
 
     {
@@ -167,6 +152,23 @@ window.TEAM_DATA = {
       ]
     },
 
+    {
+      id: "munisai",
+      name: "Munisai (穆尼赛)",
+      initials: "M",
+      level: "undergrad",
+      teamRole: "Project Development",
+      placeholder: false,
+      photo: "fig/Munisai.png",
+      focus: "AI-driven screening and development of multifunctional peptides",
+      education: "Huazhong Agricultural University",
+      description: "Researcher working at the intersection of artificial intelligence and bioinformatics, with a focus on the AI-driven screening and development of multifunctional peptides.",
+      tags: [
+        "AI for Science",
+        "Multifunctional Peptides",
+        "AI-Driven Peptide Screening"
+      ]
+  
     {
       id: "jing-qin",
       name: "Jing Qin (覃晴)",
