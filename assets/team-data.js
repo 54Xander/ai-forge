@@ -115,9 +115,6 @@ window.TEAM_DATA = {
       ]
     },
 
-
-    },
-
     {
       id: "lei-zhong",
       name: "Lei Zhong (钟磊)",
@@ -168,6 +165,7 @@ window.TEAM_DATA = {
         "Multifunctional Peptides",
         "AI-Driven Peptide Screening"
       ]
+     },
   
     {
       id: "jing-qin",
